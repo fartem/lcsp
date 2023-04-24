@@ -3,7 +3,7 @@ require 'English'
 ::Gem::Specification.new do |s|
   s.required_ruby_version = '>= 3.0'
   s.name = 'lcsp'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.license = 'MIT'
   s.files = ::Dir['lib/**/*.rb'] + %w[bin/distincter2 README.md LICENSE]
   s.executable = 'lcsp'
