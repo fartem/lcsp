@@ -25,8 +25,8 @@ module LCSP
 
     # Find all directories in repository.
     def fill_directories(path, dirs)
-      Dir.foreach(path).reject { |name| name.start_with? '.' }.each do |entry|
-        unless File.file? "#{path}/#{entry}"
+      Dir.foreach(path).reject { |name| name.start_with?('.') }.each do |entry|
+        unless File.file?("#{path}/#{entry}")
           dirs << "#{path}/#{entry}"
           fill_directories("#{path}/#{entry}", dirs)
         end

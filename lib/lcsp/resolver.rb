@@ -17,9 +17,9 @@ module LCSP
     # Main LCSPResolver method that applies
     # cache and find solution.
     def resolve
-      cache = LCSPCache.new(@lang)
+      cache = ::LCSPCache.new(@lang)
       cache.create unless cache.exists?
-      LCSPFinder.new(cache.path, @number).solution
+      ::LCSPFinder.new(cache.path, @number).solution
     end
   end
 end
