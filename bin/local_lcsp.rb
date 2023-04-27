@@ -2,4 +2,4 @@
 
 require_relative '../lib/lcsp'
 
-::LCSP::LCSP.new.start(ARGV[0], ARGV[1])
+::LCSP::LCSP.new.start(::ARGV[0], ::ARGV[1])
