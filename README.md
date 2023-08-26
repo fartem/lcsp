@@ -22,7 +22,7 @@ You should write resolver classes in Ruby because only this format accepting rig
 parse for your repository you can place in classes/scripts/files in any other programming languages (and call them from
 shell by resolver in Ruby).
 
-### Reference class
+#### Reference class
 
 ```ruby
 # frozen_string_literal: true
