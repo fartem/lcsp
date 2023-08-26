@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rouge'
 require 'rouge/cli'
 
@@ -8,10 +10,11 @@ module LCSP
   class LCSP
     # Start tool for searching solution.
     # Language can be applied in any case.
-    # @param lang {String}
-    # @param number {String}
-    def start(lang, number)
-      output = ::LCSPResolver.new(lang, number).resolve
+    # @param {String} user
+    # @param {String} lang
+    # @param {String} number
+    def start(user, lang, number)
+      output = ::LCSP::LCSPResolver.new(user, lang, number).resolve
       ::Rouge::CLI.parse([output]).run
     end
   end

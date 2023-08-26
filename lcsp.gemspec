@@ -3,12 +3,12 @@ require 'English'
 ::Gem::Specification.new do |s|
   s.required_ruby_version = '>= 3.0'
   s.name = 'lcsp'
-  s.version = '0.0.3'
+  s.version = '1.0.0'
   s.license = 'MIT'
   s.files = ::Dir['lib/**/*.rb'] + %w[bin/distincter2 README.md LICENSE]
   s.executable = 'lcsp'
   s.require_paths << 'lib'
-  s.summary = ''
+  s.summary = 'A tool for showing solutions from LeetCode'
   s.authors = ['Artem Fomchenkov']
   s.email = 'artem.fomchenkov@outlook.com'
   s.homepage = 'https://github.com/fartem/lcsp'

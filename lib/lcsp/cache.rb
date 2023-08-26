@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'faraday'
 require 'git'
 
@@ -6,26 +8,34 @@ module LCSP
   # and download solutions from GitHub
   # if repository exists.
   class LCSPCache
-    # @param lang {String}
-    def initialize(lang)
+    # @param {String} user
+    # @param {String} lang
+    def initialize(user, lang)
+      @user = user
       @lang = lang
+
+      return if exists?
+
+      ::Git.clone(
+        URI("https://github.com/#{@user}/leetcode-#{@lang.downcase}"),
+        "#{@user}-leetcode-#{@lang.downcase}"
+      )
     end
+
+    # Path of cache for @lang
+    # @return {String}
+    def path
+      "#{::Dir.pwd}/#{@user}-leetcode-#{@lang.downcase}"
+    end
+
+    private
 
     # Check cache existing.
     # Recommend to run it before
     # all other operations.
+    # @return {Boolean}
     def exists?
-      ::File.exist?("#{::Dir.pwd}/leetcode-#{@lang.downcase}")
-    end
-
-    # @todo extract to separated class (like CacheResolver or something similar)
-    def create
-      ::Git.clone(URI("https://github.com/fartem/leetcode-#{@lang.downcase}"))
-    end
-
-    # Path of cache for @lang
-    def path
-      "#{::Dir.pwd}/leetcode-#{@lang.downcase}"
+      ::File.exist?("#{::Dir.pwd}/#{@user}-leetcode-#{@lang.downcase}")
     end
   end
 end

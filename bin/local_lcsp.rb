@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/lcsp'
+# frozen_string_literal: true
 
-::LCSP::LCSP.new.start(::ARGV[0], ::ARGV[1])
+require_relative '../lib/lcsp'
+require_relative 'lcsp_runner'
+
+::LCSP::LCSPRunner.new(::ARGV).run
