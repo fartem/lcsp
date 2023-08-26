@@ -5,7 +5,7 @@ require 'English'
   s.name = 'lcsp'
   s.version = '1.0.0'
   s.license = 'MIT'
-  s.files = ::Dir['lib/**/*.rb'] + %w[bin/distincter2 README.md LICENSE]
+  s.files = ::Dir['lib/**/*.rb'] + %w[bin/lcsp README.md LICENSE]
   s.executable = 'lcsp'
   s.require_paths << 'lib'
   s.summary = 'A tool for showing solutions from LeetCode'
