@@ -17,6 +17,7 @@ require 'English'
   s.test_files = s.files.grep(%r{^(test)/})
   s.extra_rdoc_files = ['README.md']
 
+  s.add_runtime_dependency('dry-cli', '1.0.0')
   s.add_runtime_dependency('faraday', '2.7.4')
   s.add_runtime_dependency('git', '1.18')
   s.add_runtime_dependency('rouge', '4.1.0')

@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+gem 'dry-cli', '1.0.0'
 gem 'faraday', '2.7.4'
 gem 'git', '1.18'
 gem 'minitest', '5.18.0'
