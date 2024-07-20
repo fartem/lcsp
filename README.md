@@ -13,22 +13,59 @@ A tool for showing solutions from LeetCode.
 
 ### Installation
 
-Soon.
+#### Download gem from RubyGems
 
-### Run
+```shell
+$ gem i lcsp
+```
 
-You need to provide 3 arguments for run `lcsp`:
+#### As local installed gem
 
-| Parameter number | Description       | Example         |
-|------------------|-------------------|-----------------|
-| 1                | GitHub user name  | `fartem`        |
-| 2                | Repository name   | `leetcode-ruby` |
-| 3                | Number of problem | `11`            |
+Build and install gem from sources:
+
+```shell
+$ gem build lcsp.gemspec
+$ gem i lcsp
+```
+
+### Print solution
+
+You need to provide 3 arguments for run `print` command:
+
+| Parameter | Description       | Example         |
+|-----------|-------------------|-----------------|
+| `user`    | GitHub user name  | `fartem`        |
+| `repo`    | Repository name   | `leetcode-ruby` |
+| `number`  | Number of problem | `11`            |
 
 One of valid input variants be like:
 
 ```shell
-$ lcsp fartem leetcode-ruby 11
+$ lcsp print --user=fartem --repo=leetcode-ruby --number=11
+```
+
+### Clean local cache
+
+Just run next command from any folder:
+
+```shell
+$ lcsp clean
+```
+
+### Contacts
+
+You can see actual author contacts by following command:
+
+```shell
+$ lcsp author
+```
+
+### Version
+
+If you need to check installed version of `lcsp`, run from shell:
+
+```shell
+$ lcsp author
 ```
 
 ### How to write your own `LCSPResolver`
