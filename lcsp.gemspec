@@ -5,7 +5,7 @@ require 'English'
 ::Gem::Specification.new do |s|
   s.required_ruby_version = '>= 3.0'
   s.name = 'lcsp'
-  s.version = '1.0.0'
+  s.version = '1.1.0'
   s.license = 'MIT'
   s.files = ::Dir['lib/**/*.rb'] + %w[bin/lcsp README.md LICENSE]
   s.executable = 'lcsp'
@@ -17,6 +17,7 @@ require 'English'
   s.test_files = s.files.grep(%r{^(test)/})
   s.extra_rdoc_files = ['README.md']
 
+  s.add_runtime_dependency('dry-cli', '1.0.0')
   s.add_runtime_dependency('faraday', '2.7.4')
   s.add_runtime_dependency('git', '1.18')
   s.add_runtime_dependency('rouge', '4.1.0')

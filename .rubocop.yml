@@ -18,3 +18,8 @@ Bundler/GemComment:
 
 Style/DisableCopsWithinSourceCodeDirective:
   Enabled: false
+Style/MissingElse:
+  Enabled: false
+
+Lint/ConstantResolution:
+  Enabled: false
