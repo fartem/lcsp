@@ -2,6 +2,8 @@
 
 [![GitHubActions](https://github.com/fartem/distincter2/workflows/Build/badge.svg)](https://github.com/fartem/distincter2/actions?branch=master)
 [![codebeat badge](https://codebeat.co/badges/eca07972-3b5a-4b3c-a424-a277ce8128b7)](https://codebeat.co/projects/github-com-fartem-lcsp-master)
+[![Gem Version](https://badge.fury.io/rb/lcsp.svg)](https://badge.fury.io/rb/lcsp)
+[![Gem Downloads](https://img.shields.io/gem/dt/lcsp)](https://badge.fury.io/rb/lcsp)
 
 ## About
 
