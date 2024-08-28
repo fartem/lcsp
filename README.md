@@ -7,7 +7,7 @@
 
 ## About
 
-A tool for showing solutions from LeetCode.
+A tool for showing and counting solutions from LeetCode.
 
 ## How to use
 
@@ -33,7 +33,7 @@ $ gem i lcsp
 You need to provide 3 arguments for run `print` command:
 
 | Parameter | Description       | Example         |
-|-----------|-------------------|-----------------|
+| --------- | ----------------- | --------------- |
 | `user`    | GitHub user name  | `fartem`        |
 | `repo`    | Repository name   | `leetcode-ruby` |
 | `number`  | Number of problem | `11`            |
@@ -42,6 +42,21 @@ One of valid input variants be like:
 
 ```shell
 $ lcsp print --user=fartem --repo=leetcode-ruby --number=11
+```
+
+### Count solutions
+
+You need to provide 2 arguments for run `count` command:
+
+| Parameter | Description      | Example         |
+| --------- | ---------------- | --------------- |
+| `user`    | GitHub user name | `fartem`        |
+| `repo`    | Repository name  | `leetcode-ruby` |
+
+One of valid input variants be like:
+
+```shell
+$ lcsp count --user=fartem --repo=leetcode-ruby
 ```
 
 ### Clean local cache
@@ -68,14 +83,14 @@ If you need to check installed version of `lcsp`, run from shell:
 $ lcsp author
 ```
 
-### How to write your own `LCSPResolver`
+### How to write your own `LCSPFinder`
 
 #### Read before start
 
-`lcsp` works with custom resolvers - classes that should placed in your project and that will perform
+`lcsp` works with custom finders - classes that should placed in your project and that will perform
 search locally.
 
-You need to write resolver classes in Ruby because only this format accepting right now, but all work
+You need to write finder classes in Ruby because only this format accepting right now, but all work
 around search and parse for your repository you can place in classes/scripts/files in any other programming language.
 
 One of the correct and working example available
@@ -102,10 +117,6 @@ module LCSP
     # @return {String}
     def solution
     end
-
-    # @param {String} path
-    # @param {String[]} dirs
-    def fill_directories(path, dirs) end
   end
 end
 ```
@@ -144,6 +155,68 @@ module LCSP
         unless ::File.file?("#{path}/#{entry}")
           dirs << "#{path}/#{entry}"
           fill_directories("#{path}/#{entry}", dirs)
+        end
+      end
+    end
+  end
+end
+```
+
+### How to write your own `LCSCCounter`
+
+#### Read before start
+
+`lcsc` works with custom counters - classes that should placed in your project and that will perform
+search locally.
+
+You need to write counter classes in Ruby because only this format accepting right now, but all work
+around search and parse for your repository you can place in classes/scripts/files in any other programming language.
+
+One of the correct and working example available
+by [this link](https://github.com/fartem/leetcode-ruby/blob/master/lcsp/counter.rb).
+
+#### Template class
+
+`path` are default parameter that are presenting for every repository. It is a path to repository in cache.
+```ruby
+# frozen_string_literal: true
+
+module LCSC
+  # Solutions finder.
+  class LCSCCounter
+    # @param {String} path
+    def initialize(path)
+      @path = path
+    end
+
+    # @return {Integer}
+    def count
+    end
+  end
+end
+```
+
+#### Reference class example
+
+```ruby
+# frozen_string_literal: true
+
+module LCSC
+  # Solutions finder.
+  class LCSCFinder
+    # @param {String} path
+    def initialize(path)
+      @path = path
+    end
+
+    # @return {Integer}
+    def count
+      dirs = []
+      fill_directories(@path, dirs)
+
+      dirs.each do |directory|
+        ::Dir.foreach(directory) do |entry|
+          return "#{directory}/#{entry}" if entry.start_with?(@number)
         end
       end
     end

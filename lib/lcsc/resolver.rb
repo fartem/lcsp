@@ -31,7 +31,7 @@ module LCSC
 
       require_relative(finder_path)
 
-      count = ::LCSC::LCSCCounter.new(cache.path, @number).solution
+      count = ::LCSC::LCSCCounter.new(cache.path).count
 
       if count.nil?
         puts('Failed to count solutions. Please, check your input and try again.')
