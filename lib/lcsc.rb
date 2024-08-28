@@ -3,20 +3,19 @@
 require 'rouge'
 require 'rouge/cli'
 
-require_relative './lcsp/resolver'
+require_relative './lcsc/resolver'
 
-module LCSP
-  # This class represents the main functionality of the LCSP (LeetCode Solution Printer) tool.
-  class LCSP
-    # Starts the LCSP tool.
+module LCSC
+  # This class represents the main functionality of the LCSC (LeetCode Solution Counter) tool.
+  class LCSC
+    # Starts the LCSC tool.
     #
     # @param user [String] The GitHub username of the repository owner.
     # @param repository [String] The name of the GitHub repository.
-    # @param number [Integer] The pull request number.
     #
     # @return [Integer] The exit status of the Rouge CLI tool after processing the resolved LCSP.
-    def start(user, repository, number)
-      output = ::LCSP::LCSPResolver.new(user, repository, number).resolve
+    def start(user, repository)
+      output = ::LCSC::LCSCResolver.new(user, repository).resolve
 
       ::Rouge::CLI.parse([output]).run
     end
