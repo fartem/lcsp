@@ -167,7 +167,7 @@ end
 #### Read before start
 
 `lcsc` works with custom counters - classes that should placed in your project and that will perform
-search locally.
+count locally.
 
 You need to write counter classes in Ruby because only this format accepting right now, but all work
 around search and parse for your repository you can place in classes/scripts/files in any other programming language.
@@ -178,6 +178,7 @@ by [this link](https://github.com/fartem/leetcode-ruby/blob/master/lcsp/counter.
 #### Template class
 
 `path` are default parameter that are presenting for every repository. It is a path to repository in cache.
+
 ```ruby
 # frozen_string_literal: true
 
