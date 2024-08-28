@@ -211,14 +211,6 @@ module LCSC
 
     # @return {Integer}
     def count
-      dirs = []
-      fill_directories(@path, dirs)
-
-      dirs.each do |directory|
-        ::Dir.foreach(directory) do |entry|
-          return "#{directory}/#{entry}" if entry.start_with?(@number)
-        end
-      end
     end
   end
 end
