@@ -183,7 +183,7 @@ by [this link](https://github.com/fartem/leetcode-ruby/blob/master/lcsp/counter.
 # frozen_string_literal: true
 
 module LCSC
-  # Solutions finder.
+  # Solutions counter.
   class LCSCCounter
     # @param {String} path
     def initialize(path)
@@ -203,7 +203,7 @@ end
 # frozen_string_literal: true
 
 module LCSC
-  # Solutions finder.
+  # Solutions counter.
   class LCSCFinder
     # @param {String} path
     def initialize(path)
