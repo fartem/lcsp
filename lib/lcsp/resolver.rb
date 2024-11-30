@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
-require_relative './cache'
+require_relative '../common/cache'
 
 module LCSP
-  # LCSPResolver logic
+  # LCSPResolver logic.
   class LCSPResolver
-    # LCSPResolver is responsible for resolving the Least Common Subsequence Problem (LCSP)
-    # for a given user, repository, and problem number.
+    # LCSPResolver is entry point for any LCSP request by user.
     #
     # @param user [String] The GitHub username of the user.
     # @param repository [String] The name of the repository containing the LCSP problem.
