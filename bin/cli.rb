@@ -4,8 +4,6 @@ require 'dry/cli'
 require 'fileutils'
 require 'rubygems'
 
-# frozen_string_literal: true
-
 module CLI
   # lcsp CLI
   module Commands
@@ -46,6 +44,36 @@ module CLI
       # @return [void]
       def call(options)
         ::LCSP::LCSP.new.start(
+          options[:user],
+          options[:repo],
+          options[:number]
+        )
+      end
+    end
+
+    # This class represents a command for counting solutions.
+    # It inherits from Dry::CLI::Command and is registered under the 'count' alias.
+    class Count < ::Dry::CLI::Command
+      desc 'Counts solutions'
+
+      option :user,
+             default: '',
+             desc: 'GitHub user name'
+
+      option :repo,
+             default: '',
+             desc: 'GitHub repository with solutions'
+
+      # The main method of the command.
+      # It creates an instance of LCSC::LCSC and calls its start method with the provided options.
+      #
+      # @param options [Hash] The command-line options.
+      # @option options [String] :user The GitHub user name.
+      # @option options [String] :repo The GitHub repository with solutions.
+      #
+      # @return [void]
+      def call(options)
+        ::LCSC::LCSC.new.start(
           options[:user],
           options[:repo],
           options[:number]
@@ -117,6 +145,7 @@ module CLI
     end
 
     register 'print', Print.new, aliases: ['p']
+    register 'count', Count.new, aliases: ['t']
     register 'clean', Clean.new, aliases: ['c']
     register 'version', Version.new, aliases: ['v']
     register 'author', Author.new, aliases: ['a']
