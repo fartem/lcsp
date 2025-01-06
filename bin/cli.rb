@@ -75,8 +75,7 @@ module CLI
       def call(options)
         ::LCSC::LCSC.new.start(
           options[:user],
-          options[:repo],
-          options[:number]
+          options[:repo]
         )
       end
     end
