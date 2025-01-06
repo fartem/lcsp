@@ -17,7 +17,7 @@ module LCSC
     def start(user, repository)
       output = ::LCSC::LCSCResolver.new(user, repository).resolve
 
-      ::Rouge::CLI.parse([output]).run
+      puts("#{output}\n")
     end
   end
 end

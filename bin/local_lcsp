@@ -3,4 +3,5 @@
 # frozen_string_literal: true
 
 require_relative '../lib/lcsp'
+require_relative '../lib/lcsc'
 require_relative 'cli'
